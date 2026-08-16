@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Games — TyronesLuck</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0b0b0d;
+            --panel: #121216;
+            --panel-hover: #18181e;
+            --border: #25252d;
+            --border-hover: #3a3a45;
+            --text: #f2f2f5;
+            --muted: #888891;
+            --accent: #7c5cff;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% -20%, rgba(124, 92, 255, 0.12), transparent 40%),
+                var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Navigation */
+
+        nav {
+            height: 70px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(11, 11, 13, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .back {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .back:hover {
+            color: var(--text);
+        }
+
+        /* Main */
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 25px 100px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .heading h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            letter-spacing: -3px;
+            margin-bottom: 15px;
+        }
+
+        .heading p {
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* Games */
+
+        .games {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .game {
+            position: relative;
+            min-height: 220px;
+            padding: 30px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            overflow: hidden;
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .game::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: -70px;
+            bottom: -90px;
+            background: rgba(124, 92, 255, 0.08);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .game:hover {
+            transform: translateY(-5px);
+            background: var(--panel-hover);
+            border-color: var(--border-hover);
+        }
+
+        .game:hover::after {
+            transform: scale(1.5);
+            background: rgba(124, 92, 255, 0.13);
+        }
+
+        .number {
+            color: #55555f;
+            font-size: 13px;
+            margin-bottom: 35px;
+        }
+
+        .game h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .game p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 350px;
+        }
+
+        .play {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            transition: 0.2s;
+        }
+
+        .game:hover .play {
+            color: white;
+            border-color: #555;
+            transform: translateX(3px);
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            margin-top: 70px;
+            color: #44444c;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            main {
+                padding: 55px 18px 70px;
+            }
+
+            .heading {
+                margin-bottom: 35px;
+            }
+
+            .games {
+                grid-template-columns: 1fr;
+            }
+
+            .game {
+                min-height: 190px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a class="logo" href="/">TyronesLuck</a>
+
+        <a class="back" href="/">
+            ← Back
+        </a>
+    </nav>
+
+    <main>
+
+        <section class="heading">
+            <h1>Games</h1>
+            <p>Pick a game and start playing.</p>
+        </section>
+
+        <section class="games">
+
+            <a class="game" href="neon-serpent.html">
+                <div class="play">→</div>
+
+                <div class="number">01</div>
+
+                <h2>Neon Serpent</h2>
+
+                <p>
+                    Guide the serpent, collect the neon and try not to
+                    crash into yourself.
+                </p>
+            </a>
+
+            <a class="game" href="no-bounce.html">
+                <div class="play">→</div>
+
+                <div class="number">02</div>
+
+                <h2>No Bounce</h2>
+
+                <p>
+                    A fast little arcade challenge. Keep moving and
+                    see how long you can survive.
+                </p>
+            </a>
+
+            <a class="game" href="starfall.html">
+                <div class="play">→</div>
+
+                <div class="number">03</div>
+
+                <h2>Starfall</h2>
+
+                <p>
+                    Dodge the falling stars and survive the chaos.
+                    How high can you score?
+                </p>
+            </a>
+
+            <a class="game" href="tic-tac-toe.html">
+                <div class="play">→</div>
+
+                <div class="number">04</div>
+
+                <h2>Tic-Tac-Toe</h2>
+
+                <p>
+                    The classic game of Xs and Os. Simple,
+                    familiar and surprisingly competitive.
+                </p>
+            </a>
+
+        </section>
+
+        <footer>
+            © 2026 TyronesLuck
+        </footer>
+
+    </main>
+
+</body>
+</html>
